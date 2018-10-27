@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.CoordinatorLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".AnimationActivity">
-
-
-    <include layout="@layout/content_main"/>
-
-    <android.support.design.widget.FloatingAsceneform_fragmentctionButton
+    <fragment android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/sceneformFragment"
+              android:name="com.google.ar.sceneform.ux.ArFragment"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"/>
+    <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_media_play"/>
+            app:srcCompat="@android:drawable/ic_media_play"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
 
-</android.support.constraint.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>
