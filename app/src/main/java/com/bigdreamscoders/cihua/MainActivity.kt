@@ -20,9 +20,16 @@ import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.attr.width
+import android.util.DisplayMetrics
+
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val displayMetrics = DisplayMetrics()
+        val windowWidth = displayMetrics.widthPixels
+        val windowHeight = displayMetrics.heightPixels
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
@@ -31,12 +38,53 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this.baseContext, AnimationActivity::class.java))
         }
 
-        var listener = View.OnTouchListener(function = {view, motionEvent->
-            if(motionEvent.action == MotionEvent.ACTION_MOVE ){
-                view.y = motionEvent.rawY -view.height/2
-                view.x = motionEvent.rawX -view.height/2
+        val listener = View.OnTouchListener(function = { view, motionEvent->
+            val width = view.layoutParams.width.toFloat()
+            val height = view.layoutParams.height.toFloat()
+            var dx: Float = 0F
+            var dy: Float = 0F
+            when(motionEvent.action){
+                    MotionEvent.ACTION_DOWN->{
+                        dx =  motionEvent.rawY -view.height/2
+                        dy =  motionEvent.rawX -view.height/2
+                        true
+                    }
+                    MotionEvent.ACTION_MOVE->{
+                        view.animate()
+                            .x(motionEvent.rawX+dx)
+                            .y(motionEvent.rawY+dy)
+                            .setDuration(0)
+                            .start()
+                        if (motionEvent.rawX + dx + width > windowWidth) {
+                            view.animate()
+                                .x(windowWidth - width)
+                                .setDuration(0)
+                                .start();
+                        }
+                        if (motionEvent.rawX + dx < 0) {
+                            view.animate()
+                                .x(0F)
+                                .setDuration(0)
+                                .start();
+                        }
+                        if (motionEvent.rawY + dy + height > windowHeight) {
+                            view.animate()
+                                .y(windowHeight - height)
+                                .setDuration(0)
+                                .start();
+                        }
+                        if (motionEvent.rawY + dy < 0) {
+                            view.animate()
+                                .y(0F)
+                                .setDuration(0)
+                                .start();
+                        }
+                        true
+                    }
+                    else ->
+                        true
             }
-            true
+
         })
         dragbutton.setOnTouchListener(listener)
     }
