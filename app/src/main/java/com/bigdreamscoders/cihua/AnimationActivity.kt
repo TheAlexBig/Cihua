@@ -16,10 +16,14 @@ import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import kotlinx.android.synthetic.main.activity_animation.*
+import kotlin.concurrent.thread
 
 class AnimationActivity : AppCompatActivity() {
     lateinit var fragment: ArFragment
     val anchors: MutableList<Anchor> = arrayListOf()
+    val sequence = listOf("wave1.sfb","wave2.sfb","wave3.sfb","wave4.sfb","wave5.sfb",
+        "wave6.sfb","wave7.sfb","wave8.sfb","wave9.sfb")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
@@ -49,23 +53,26 @@ class AnimationActivity : AppCompatActivity() {
     }
 
     private fun addObject() {
+        val animation = Thread()
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
-        var elements =  listOf("wave1.sfb", "model.sfb")
-        if (frame != null ) {
+        if (frame != null) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())
-            for (hit in hits) {
-                val trackable = hit.trackable
-                if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
-                    placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
-                    placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(1)))
-                    break
-                }
+
+                    for (hit in hits) {
+                        val trackable = hit.trackable
+                        if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
+                                    for (framed in sequence) {
+                                        removeNodes()
+                                        placeFloor(fragment, hit.createAnchor() , Uri.parse(framed))
+
+                                    }
+                            break
+                        }
+                    }
+
             }
 
-
-
-        }
     }
 
     private fun placeObject(fragment: ArFragment, createAnchor: Anchor, model: Uri) {
