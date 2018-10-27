@@ -56,3 +56,28 @@ sceneform.asset('sampledata/Craneo.obj',
         'default',
         'sampledata/Craneo.sfa',
         'src/main/assets/Craneo')
+
+sceneform.asset('sampledata/HeadAnimation/wave1.obj',
+        'default',
+        'sampledata/HeadAnimation/wave1.sfa',
+        'src/main/assets/wave1')
+
+sceneform.asset('sampledata/HeadAnimation/wave2.obj',
+        'default',
+        'sampledata/HeadAnimation/wave2.sfa',
+        'src/main/assets/wave2')
+
+sceneform.asset('sampledata/HeadAnimation/wave3.obj',
+        'default',
+        'sampledata/HeadAnimation/wave3.sfa',
+        'src/main/assets/wave3')
+
+sceneform.asset('sampledata/HeadAnimation/wave4.obj',
+        'default',
+        'sampledata/HeadAnimation/wave4.sfa',
+        'src/main/assets/wave4')
+
+sceneform.asset('sampledata/HeadAnimation/wave5.obj',
+        'default',
+        'sampledata/HeadAnimation/wave5.sfa',
+        'src/main/assets/wave5')
