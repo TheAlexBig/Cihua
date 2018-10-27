@@ -89,7 +89,7 @@
     file: 'sampledata/HeadAnimation/wave1.obj',
     name: 'wave1',
     recenter: 'root',
-    scale: 0.002750000000000002,
+    scale: 0.00900,
   },
   version: '0.52:1',
 }
