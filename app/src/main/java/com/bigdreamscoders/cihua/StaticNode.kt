@@ -14,5 +14,6 @@ class StaticNode : Node(), Node.OnTapListener {
     override fun onTap(p0: HitTestResult?, p1: MotionEvent?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
     // We'll use Property Animation to make this node rotate.
 }

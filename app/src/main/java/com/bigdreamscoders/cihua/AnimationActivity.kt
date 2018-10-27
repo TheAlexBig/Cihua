@@ -11,6 +11,7 @@ import android.view.View
 import com.google.ar.core.Anchor
 import com.google.ar.core.Plane
 import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_animation.*
 
 class AnimationActivity : AppCompatActivity() {
     lateinit var fragment: ArFragment
-
+    val anchors: MutableList<Anchor> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
@@ -26,8 +27,25 @@ class AnimationActivity : AppCompatActivity() {
         fragment = supportFragmentManager.findFragmentById(R.id.sceneformFragment) as ArFragment
 
         fab.setOnClickListener {
-            addObject()
+            if(anchors.size==0){
+                addObject()
+            }
+            else{
+                removeNodes()
+                addObject()
+            }
         }
+        callstop.setOnClickListener {
+            removeNodes()
+        }
+    }
+
+    private fun removeNodes(){
+        for(ancho in anchors){
+            ancho.detach()
+        }
+        anchors.removeAll { true }
+
     }
 
     private fun addObject() {
@@ -45,6 +63,8 @@ class AnimationActivity : AppCompatActivity() {
                 }
             }
 
+
+
         }
     }
 
@@ -54,6 +74,7 @@ class AnimationActivity : AppCompatActivity() {
             .build()
             .thenAccept {
                 addRotatingNodeToScene(fragment, createAnchor, it)
+                anchors.add(createAnchor)
             }
             .exceptionally {
                 val builder = AlertDialog.Builder(this)
@@ -71,6 +92,7 @@ class AnimationActivity : AppCompatActivity() {
             .build()
             .thenAccept {
                 addStaticNodeToScene(fragment, createAnchor, it)
+                anchors.add(createAnchor)
             }
             .exceptionally {
                 val builder = AlertDialog.Builder(this)
@@ -82,10 +104,12 @@ class AnimationActivity : AppCompatActivity() {
             }
     }
 
+
     private fun addStaticNodeToScene(fragment: ArFragment, createAnchor: Anchor, renderable: ModelRenderable){
         val anchorNode = AnchorNode(createAnchor)
         val transformableNode = TransformableNode(fragment.transformationSystem)
         val staticNode = StaticNode()
+
         staticNode.renderable = renderable
         staticNode.addChild(transformableNode)
         staticNode.setParent(anchorNode)
@@ -98,13 +122,14 @@ class AnimationActivity : AppCompatActivity() {
         val anchorNode = AnchorNode(createAnchor)
         val transformableNode = TransformableNode(fragment.transformationSystem)
         val rotatingNode = RotatingNode()
+
         rotatingNode.renderable = renderable
         rotatingNode.addChild(transformableNode)
         rotatingNode.setParent(anchorNode)
 
+
         //transformableNode.renderable = renderable
         //transformableNode.setParent(anchorNode)
-
         fragment.arSceneView.scene.addChild(anchorNode)
         transformableNode.select()
     }
