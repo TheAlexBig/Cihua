@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import com.google.ar.core.Anchor
 import com.google.ar.core.Plane
@@ -29,6 +30,15 @@ class MainActivity : AppCompatActivity() {
         callanimation.setOnClickListener {
             startActivity(Intent(this.baseContext, AnimationActivity::class.java))
         }
+
+        var listener = View.OnTouchListener(function = {view, motionEvent->
+            if(motionEvent.action == MotionEvent.ACTION_MOVE ){
+                view.y = motionEvent.rawY -view.height/2
+                view.x = motionEvent.rawX -view.height/2
+            }
+            true
+        })
+        dragbutton.setOnTouchListener(listener)
     }
 
 }

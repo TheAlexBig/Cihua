@@ -11,7 +11,7 @@
 
     <fragment android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:id="@+id/sceneform_fragment"
+              android:id="@+id/sceneformFragment"
               android:name="com.google.ar.sceneform.ux.ArFragment"
               app:layout_constraintTop_toTopOf="parent"
               app:layout_constraintStart_toStartOf="parent"

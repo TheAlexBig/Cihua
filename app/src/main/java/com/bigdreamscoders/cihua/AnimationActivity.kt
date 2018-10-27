@@ -23,7 +23,7 @@ class AnimationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
 
-        fragment = supportFragmentManager.findFragmentById(R.id.sceneform_fragment) as ArFragment
+        fragment = supportFragmentManager.findFragmentById(R.id.sceneformFragment) as ArFragment
 
         fab.setOnClickListener {
             addObject()
