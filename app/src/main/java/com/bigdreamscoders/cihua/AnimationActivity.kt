@@ -47,6 +47,7 @@ class AnimationActivity : AppCompatActivity() {
 
         }
     }
+
     private fun placeObject(fragment: ArFragment, createAnchor: Anchor, model: Uri) {
         ModelRenderable.builder()
             .setSource(fragment.context, model)
@@ -92,6 +93,7 @@ class AnimationActivity : AppCompatActivity() {
         fragment.arSceneView.scene.addChild(anchorNode)
         transformableNode.select()
     }
+
     private fun addRotatingNodeToScene(fragment: ArFragment, createAnchor: Anchor, renderable: ModelRenderable) {
         val anchorNode = AnchorNode(createAnchor)
         val transformableNode = TransformableNode(fragment.transformationSystem)
@@ -107,13 +109,10 @@ class AnimationActivity : AppCompatActivity() {
         transformableNode.select()
     }
 
-
     private fun getScreenCenter(): android.graphics.Point {
         val vw = findViewById<View>(android.R.id.content)
         return Point(vw.width / 2, vw.height / 2)
     }
-
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
