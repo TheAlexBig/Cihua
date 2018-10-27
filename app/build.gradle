@@ -50,3 +50,9 @@ sceneform.asset('sampledata/model.obj',
         'default',
         'sampledata/model.sfa',
         'src/main/assets/model')
+
+
+sceneform.asset('sampledata/Craneo.obj',
+        'default',
+        'sampledata/Craneo.sfa',
+        'src/main/assets/Craneo')
