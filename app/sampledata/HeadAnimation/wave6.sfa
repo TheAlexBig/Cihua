@@ -86,10 +86,10 @@
       'Orientation',
     ],
     collision: {},
-    file: 'sampledata/HeadAnimation/wave1.obj',
-    name: 'wave1',
+    file: 'sampledata/HeadAnimation/wave6.obj',
+    name: 'wave6',
     recenter: 'root',
-    scale: 0.002750000000000002,
+    scale: 0.0052919999999999998,
   },
   version: '0.52:1',
 }

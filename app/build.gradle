@@ -81,3 +81,23 @@ sceneform.asset('sampledata/HeadAnimation/wave5.obj',
         'default',
         'sampledata/HeadAnimation/wave5.sfa',
         'src/main/assets/wave5')
+
+sceneform.asset('sampledata/HeadAnimation/wave6.obj',
+        'default',
+        'sampledata/HeadAnimation/wave6.sfa',
+        'src/main/assets/wave6')
+
+sceneform.asset('sampledata/HeadAnimation/wave7.obj',
+        'default',
+        'sampledata/HeadAnimation/wave7.sfa',
+        'src/main/assets/wave7')
+
+sceneform.asset('sampledata/HeadAnimation/wave8.obj',
+        'default',
+        'sampledata/HeadAnimation/wave8.sfa',
+        'src/main/assets/wave8')
+
+sceneform.asset('sampledata/HeadAnimation/wave9.obj',
+        'default',
+        'sampledata/HeadAnimation/wave9.sfa',
+        'src/main/assets/wave9')
