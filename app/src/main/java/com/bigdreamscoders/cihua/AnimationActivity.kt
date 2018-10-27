@@ -33,14 +33,14 @@ class AnimationActivity : AppCompatActivity() {
     private fun addObject() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
-        var elements =  listOf("Heart.sfb", "model.sfb")
+        var elements =  listOf("Craneo.sfb", "model.sfb")
         if (frame != null ) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())
             for (hit in hits) {
                 val trackable = hit.trackable
                 if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
+                    placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
                     placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(1)))
-                    placeObject(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
                     break
                 }
             }
