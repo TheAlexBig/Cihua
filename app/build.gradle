@@ -42,3 +42,8 @@ sceneform.asset('sampledata/Heart.obj',
         'default',
         'sampledata/Heart.sfa',
         'src/main/assets/Heart')
+
+sceneform.asset('sampledata/model.obj',
+        'default',
+        'sampledata/model.sfa',
+        'src/main/assets/model')
