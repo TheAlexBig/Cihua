@@ -56,10 +56,11 @@
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/map"
+                        android:src="@drawable/ic_map"
                         android:scaleType="center"
                         android:id="@+id/mapa"
-                        android:contentDescription="@string/image" android:adjustViewBounds="true"/>
+                        android:contentDescription="@string/image"
+                        android:adjustViewBounds="true"/>
             </android.support.constraint.ConstraintLayout>
         </HorizontalScrollView>
     </ScrollView>

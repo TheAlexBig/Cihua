@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import kotlinx.android.synthetic.main.activity_main.*
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.util.DisplayMetrics
@@ -27,13 +28,13 @@ class MainActivity : AppCompatActivity() {
     val OneEightyDeg = 180.0
     val locationManager: LocationManager? = null
     val listener: LocationListener? = null
-    lateinit var previousL: Location
+    var previousL: Location? = null
     lateinit var widthVW: HorizontalScrollView
     lateinit var heightVW: ScrollView
     lateinit var gpsI:ImageView
     val imageMapWidth = 751
     val imageMapHeigh = 935
-    val imageGps = gps
+    //    val imageGps = gps
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         heightVW = scrollView
         widthVW = scrollViewVertical
-        widthVW.scrollTo(0,imageMapWidth)
-        heightVW.scrollTo(imageMapHeigh,0)
-        gpsI = gps
-        gpsI.animate().translationX(imageMapWidth.toFloat())
-        gpsI.animate().translationY(imageMapHeigh.toFloat())
+        widthVW.scrollTo(imageMapHeigh,0)
+        heightVW.scrollTo(0,imageMapWidth)
+       // gpsI = gps
+        //gpsI.animate().translationX(imageMapWidth.toFloat())
+        //gpsI.animate().translationY(imageMapHeigh.toFloat())
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         // Define a listener that responds to location updates
@@ -53,15 +54,15 @@ class MainActivity : AppCompatActivity() {
             override fun onLocationChanged(location: Location) {
 
                 if(previousL==null){
-                    imageGps.animate().translationX(imageMapWidth.toFloat())
-                    imageGps.animate().translationY(imageMapHeigh.toFloat())
+                    //imageGps.animate().translationX(imageMapWidth.toFloat())
+                    //imageGps.animate().translationY(imageMapHeigh.toFloat())
                     previousL=location
                 }
                 else{
-                    if(previousL.latitude!=location.latitude){
+                    if(previousL?.latitude!=location.latitude){
 
                     }
-                    if(previousL.longitude!=location.longitude){
+                    if(previousL?.longitude!=location.longitude){
 
                     }
                     previousL = location
@@ -84,6 +85,9 @@ class MainActivity : AppCompatActivity() {
             catch (e: Exception) {
                 // Must be safe
             }
+        }
+        callanimation.setOnClickListener {
+            startActivity(Intent(this.baseContext, AnimationActivity::class.java))
         }
     }
 
