@@ -51,7 +51,7 @@ class AnimationActivity : AppCompatActivity() {
     private fun addObject() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
-        var elements =  listOf("wave1.sfb", "model.sfb")
+        var elements =  listOf("personaB0.sfb", "model.sfb")
         if (frame != null ) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())
             for (hit in hits) {

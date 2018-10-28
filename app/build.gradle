@@ -101,3 +101,23 @@ sceneform.asset('sampledata/HeadAnimation/wave9.obj',
         'default',
         'sampledata/HeadAnimation/wave9.sfa',
         'src/main/assets/wave9')
+
+sceneform.asset('sampledata/PersonaBAnimation/personaB0.obj',
+        'default',
+        'sampledata/PersonaBAnimation/personaB0.sfa',
+        'src/main/assets/personaB0')
+
+sceneform.asset('sampledata/PersonaBAnimation/personaB1.obj',
+        'default',
+        'sampledata/PersonaBAnimation/personaB1.sfa',
+        'src/main/assets/personaB1')
+
+sceneform.asset('sampledata/PersonaBAnimation/personaB2.obj',
+        'default',
+        'sampledata/PersonaBAnimation/personaB2.sfa',
+        'src/main/assets/personaB2')
+
+sceneform.asset('sampledata/PersonaBAnimation/personaB3.obj',
+        'default',
+        'sampledata/PersonaBAnimation/personaB3.sfa',
+        'src/main/assets/personaB3')
