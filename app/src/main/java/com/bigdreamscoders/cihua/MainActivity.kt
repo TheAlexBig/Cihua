@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
             if(!(outLocation.first() in 2806..3126 && outLocation[1]  in 0..558) && !(outLocation.first() in  2632..2976 && outLocation[1]  in 1196..1698) && !(outLocation.first() in 1827..1993 && outLocation[1]  in 1135..1384) && !(outLocation.first() in 1171..1280 && outLocation[1]  in 283..432)) sector = 0
 
-            Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1] + " |   Sector "+sector.toString(), Toast.LENGTH_LONG).show()
+            //Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1] + " |   Sector "+sector.toString(), Toast.LENGTH_LONG).show()
 
             if(sector != 0){
                 val intent = Intent(this.baseContext, AnimationActivity::class.java)
