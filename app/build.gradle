@@ -121,3 +121,18 @@ sceneform.asset('sampledata/PersonaBAnimation/personaB3.obj',
         'default',
         'sampledata/PersonaBAnimation/personaB3.sfa',
         'src/main/assets/personaB3')
+
+sceneform.asset('sampledata/Choza/Mascara_Low.obj',
+        'default',
+        'sampledata/Choza/Mascara_Low.sfa',
+        'src/main/assets/Mascara_Low')
+
+sceneform.asset('sampledata/Choza/Punta_de_flecha.obj',
+        'default',
+        'sampledata/Choza/Punta_de_flecha.sfa',
+        'src/main/assets/Punta_de_flecha')
+
+sceneform.asset('sampledata/Choza/TablillaMazapan.obj',
+        'default',
+        'sampledata/Choza/TablillaMazapan.sfa',
+        'src/main/assets/TablillaMazapan')
