@@ -59,7 +59,7 @@ class AnimationActivity : AppCompatActivity() {
             0-> listOf("personaB0.sfb", "model.sfb")
             1-> listOf("Craneo.sfb", "model.sfb")
             2-> listOf("Heart.sfb", "model.sfb")
-            3-> listOf("wave5.sfb", "model.sfb")
+            3-> listOf("escena1-1.sfb", "model.sfb")
             4-> listOf("charla.sfb", "model.sfb")
             else -> listOf("personaB0.sfb", "model.sfb")
         }

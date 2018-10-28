@@ -126,3 +126,8 @@ sceneform.asset('sampledata/charla.obj',
         'default',
         'sampledata/charla.sfa',
         'src/main/assets/charla')
+
+sceneform.asset('sampledata/escena1-1.obj',
+        'default',
+        'sampledata/escena1-1.sfa',
+        'src/main/assets/escena1-1')
