@@ -92,8 +92,11 @@ class MainActivity : AppCompatActivity() {
             outLocation[0] = scrollViewVertical.scrollX
             //juego de la pelota y =  0..382
             if (outLocation.first() in 2112..2435 && outLocation[1]  in 0..382) sector = 4
+            //
             if (outLocation.first() in  1949..2317 && outLocation[1]  in 890..1234) sector = 3
+            //
             if (outLocation.first() in 1365..1497 && outLocation[1]  in 854..988) sector = 2
+            //
             if (outLocation.first() in 880..972 && outLocation[1]  in 208..358) sector = 1
 
             Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1], Toast.LENGTH_LONG).show()

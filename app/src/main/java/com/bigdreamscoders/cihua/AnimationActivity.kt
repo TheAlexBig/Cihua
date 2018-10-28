@@ -56,12 +56,16 @@ class AnimationActivity : AppCompatActivity() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
         val elements =  when(sector){
-            0-> listOf("personaB0.sfb", "model.sfb")
-            1-> listOf("Craneo.sfb", "model.sfb")
-            2-> listOf("Heart.sfb", "model.sfb")
-            3-> listOf("escena1-1.sfb", "model.sfb")
-            4-> listOf("charla.sfb", "model.sfb")
-            else -> listOf("personaB0.sfb", "model.sfb")
+            0-> listOf("personaB0.sfb")
+            //Templo
+            1-> listOf("escena2.sfb")
+            //Choza
+            2-> listOf("escena3.sfb")
+            //Piramide
+            3-> listOf("escena1-1.sfb")
+            //Juego de la pelota
+            4-> listOf("escena4.sfb")
+            else -> listOf("personaB0.sfb")
         }
         if (frame != null ) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())
@@ -69,7 +73,7 @@ class AnimationActivity : AppCompatActivity() {
                 val trackable = hit.trackable
                 if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
                     placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
-                    placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(1)))
+                    //placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(1)))
                     break
                 }
             }

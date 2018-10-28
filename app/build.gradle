@@ -131,3 +131,23 @@ sceneform.asset('sampledata/escena1-1.obj',
         'default',
         'sampledata/escena1-1.sfa',
         'src/main/assets/escena1-1')
+
+sceneform.asset('sampledata/escena4.obj',
+        'default',
+        'sampledata/escena4.sfa',
+        'src/main/assets/escena4')
+
+sceneform.asset('sampledata/escena3.obj',
+        'default',
+        'sampledata/escena3.sfa',
+        'src/main/assets/escena3')
+
+sceneform.asset('sampledata/escena1.obj',
+        'default',
+        'sampledata/escena1.sfa',
+        'src/main/assets/escena1')
+
+sceneform.asset('sampledata/escena2.obj',
+        'default',
+        'sampledata/escena2.sfa',
+        'src/main/assets/escena2')
