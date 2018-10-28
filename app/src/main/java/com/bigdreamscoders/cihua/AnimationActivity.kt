@@ -56,7 +56,7 @@ class AnimationActivity : AppCompatActivity() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
         val elements =  when(sector){
-            0-> listOf("personaB0.sfb")
+            0-> listOf("Craneo.sfb")
             //Templo
             1-> listOf("escena2.sfb")
             //Choza
@@ -65,7 +65,7 @@ class AnimationActivity : AppCompatActivity() {
             3-> listOf("escena1-1.sfb")
             //Juego de la pelota
             4-> listOf("escena4.sfb")
-            else -> listOf("personaB0.sfb")
+            else -> listOf("Heart.sfb")
         }
         if (frame != null ) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())

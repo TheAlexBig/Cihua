@@ -46,86 +46,11 @@ sceneform.asset('sampledata/Heart.obj',
         'sampledata/Heart.sfa',
         'src/main/assets/Heart')
 
-sceneform.asset('sampledata/model.obj',
-        'default',
-        'sampledata/model.sfa',
-        'src/main/assets/model')
-
 
 sceneform.asset('sampledata/Craneo.obj',
         'default',
         'sampledata/Craneo.sfa',
         'src/main/assets/Craneo')
-
-sceneform.asset('sampledata/HeadAnimation/wave1.obj',
-        'default',
-        'sampledata/HeadAnimation/wave1.sfa',
-        'src/main/assets/wave1')
-
-sceneform.asset('sampledata/HeadAnimation/wave2.obj',
-        'default',
-        'sampledata/HeadAnimation/wave2.sfa',
-        'src/main/assets/wave2')
-
-sceneform.asset('sampledata/HeadAnimation/wave3.obj',
-        'default',
-        'sampledata/HeadAnimation/wave3.sfa',
-        'src/main/assets/wave3')
-
-sceneform.asset('sampledata/HeadAnimation/wave4.obj',
-        'default',
-        'sampledata/HeadAnimation/wave4.sfa',
-        'src/main/assets/wave4')
-
-sceneform.asset('sampledata/HeadAnimation/wave5.obj',
-        'default',
-        'sampledata/HeadAnimation/wave5.sfa',
-        'src/main/assets/wave5')
-
-sceneform.asset('sampledata/HeadAnimation/wave6.obj',
-        'default',
-        'sampledata/HeadAnimation/wave6.sfa',
-        'src/main/assets/wave6')
-
-sceneform.asset('sampledata/HeadAnimation/wave7.obj',
-        'default',
-        'sampledata/HeadAnimation/wave7.sfa',
-        'src/main/assets/wave7')
-
-sceneform.asset('sampledata/HeadAnimation/wave8.obj',
-        'default',
-        'sampledata/HeadAnimation/wave8.sfa',
-        'src/main/assets/wave8')
-
-sceneform.asset('sampledata/HeadAnimation/wave9.obj',
-        'default',
-        'sampledata/HeadAnimation/wave9.sfa',
-        'src/main/assets/wave9')
-
-sceneform.asset('sampledata/PersonaBAnimation/personaB0.obj',
-        'default',
-        'sampledata/PersonaBAnimation/personaB0.sfa',
-        'src/main/assets/personaB0')
-
-sceneform.asset('sampledata/PersonaBAnimation/personaB1.obj',
-        'default',
-        'sampledata/PersonaBAnimation/personaB1.sfa',
-        'src/main/assets/personaB1')
-
-sceneform.asset('sampledata/PersonaBAnimation/personaB2.obj',
-        'default',
-        'sampledata/PersonaBAnimation/personaB2.sfa',
-        'src/main/assets/personaB2')
-
-sceneform.asset('sampledata/PersonaBAnimation/personaB3.obj',
-        'default',
-        'sampledata/PersonaBAnimation/personaB3.sfa',
-        'src/main/assets/personaB3')
-
-sceneform.asset('sampledata/charla.obj',
-        'default',
-        'sampledata/charla.sfa',
-        'src/main/assets/charla')
 
 sceneform.asset('sampledata/escena1-1.obj',
         'default',
@@ -141,11 +66,6 @@ sceneform.asset('sampledata/escena3.obj',
         'default',
         'sampledata/escena3.sfa',
         'src/main/assets/escena3')
-
-sceneform.asset('sampledata/escena1.obj',
-        'default',
-        'sampledata/escena1.sfa',
-        'src/main/assets/escena1')
 
 sceneform.asset('sampledata/escena2.obj',
         'default',

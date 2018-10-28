@@ -91,13 +91,13 @@ class MainActivity : AppCompatActivity() {
             outLocation[1] = scrollView.scrollY
             outLocation[0] = scrollViewVertical.scrollX
             //juego de la pelota y =  0..382
-            if (outLocation.first() in 2112..2435 && outLocation[1]  in 0..382) sector = 4
-            //
-            if (outLocation.first() in  1949..2317 && outLocation[1]  in 890..1234) sector = 3
-            //
-            if (outLocation.first() in 1365..1497 && outLocation[1]  in 854..988) sector = 2
-            //
-            if (outLocation.first() in 880..972 && outLocation[1]  in 208..358) sector = 1
+            if (outLocation.first() in 2806..3126 && outLocation[1]  in 0..558) sector = 4
+            //Piramide
+            if (outLocation.first() in  2632..2976 && outLocation[1]  in 1196..1698) sector = 3
+            //Choza
+            if (outLocation.first() in 1827..1993 && outLocation[1]  in 1135..1384) sector = 2
+            //Templo
+            if (outLocation.first() in 1153..1284 && outLocation[1]  in 400..554) sector = 1
 
             Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1], Toast.LENGTH_LONG).show()
 
