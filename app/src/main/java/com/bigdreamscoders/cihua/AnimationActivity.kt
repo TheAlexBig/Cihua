@@ -20,9 +20,13 @@ import kotlinx.android.synthetic.main.activity_animation.*
 class AnimationActivity : AppCompatActivity() {
     lateinit var fragment: ArFragment
     val anchors: MutableList<Anchor> = arrayListOf()
+    var sector = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
+
+        sector = this.intent.getIntExtra("sector",0)
 
         fragment = supportFragmentManager.findFragmentById(R.id.sceneformFragment) as ArFragment
 
@@ -51,7 +55,14 @@ class AnimationActivity : AppCompatActivity() {
     private fun addObject() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
-        var elements =  listOf("personaB0.sfb", "model.sfb")
+        val elements =  when(sector){
+            0-> listOf("personaB0.sfb", "model.sfb")
+            1-> listOf("Craneo.sfb", "model.sfb")
+            2-> listOf("Heart.sfb", "model.sfb")
+            3-> listOf("wave5.sfb", "model.sfb")
+            4-> listOf("personaB0.sfb", "model.sfb")
+            else -> listOf("personaB0.sfb", "model.sfb")
+        }
         if (frame != null ) {
             val hits = frame.hitTest(point.x.toFloat(), point.y.toFloat())
             for (hit in hits) {
@@ -137,21 +148,5 @@ class AnimationActivity : AppCompatActivity() {
     private fun getScreenCenter(): android.graphics.Point {
         val vw = findViewById<View>(android.R.id.content)
         return Point(vw.width / 2, vw.height / 2)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }

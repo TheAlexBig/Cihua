@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Point
 import android.location.Location
 import android.util.DisplayMetrics
 import android.location.LocationListener
@@ -16,36 +17,37 @@ import android.os.Build
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.util.Log
+import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.ScrollView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.view.*
 import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
 
-    val locationManager: LocationManager? = null
-    val listener: LocationListener? = null
     var previousL: Location? = null
     lateinit var widthVW: HorizontalScrollView
     lateinit var heightVW: ScrollView
     lateinit var gpsI:ImageView
-    val imageMapWidth = 751
-    val imageMapHeigh = 935
-    //    val imageGps = gps
-    @SuppressLint("MissingPermission")
+    val imageMapWidth = 1871
+    val imageMapHeigh = 1503
+    var sector = 0
+    @SuppressLint("MissingPermission", "ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val outLocation = IntArray(2)
         heightVW = scrollView
         widthVW = scrollViewVertical
         widthVW.scrollTo(0,imageMapWidth)
         heightVW.scrollTo(imageMapHeigh,0)
-        // gpsI = gps
-        //gpsI.animate().translationX(imageMapWidth.toFloat())
-        //gpsI.animate().translationY(imageMapHeigh.toFloat())
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         // Define a listener that responds to location updates
@@ -53,8 +55,6 @@ class MainActivity : AppCompatActivity() {
             override fun onLocationChanged(location: Location) {
 
                 if(previousL==null){
-                    //imageGps.animate().translationX(imageMapWidth.toFloat())
-                    //imageGps.animate().translationY(imageMapHeigh.toFloat())
                     previousL=location
                 }
                 else{
@@ -85,8 +85,22 @@ class MainActivity : AppCompatActivity() {
                 // Must be safe
             }
         }
+
         callanimation.setOnClickListener {
-            startActivity(Intent(this.baseContext, AnimationActivity::class.java))
+            mapa.getLocationOnScreen(outLocation)
+            outLocation[1] = scrollView.scrollY
+            outLocation[0] = scrollViewVertical.scrollX
+            //juego de la pelota y =  0..382
+            if (outLocation.first() in 2112..2435 && outLocation[1]  in 0..382) sector = 4
+            if (outLocation.first() in  1949..2317 && outLocation[1]  in 890..1234) sector = 3
+            if (outLocation.first() in 1365..1497 && outLocation[1]  in 854..988) sector = 2
+            if (outLocation.first() in 880..972 && outLocation[1]  in 208..358) sector = 1
+
+            Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1], Toast.LENGTH_LONG).show()
+
+            val intent = Intent(this.baseContext, AnimationActivity::class.java)
+            intent.putExtra("sector", sector)
+            startActivity(intent)
         }
     }
 
@@ -112,6 +126,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    private fun getScreenCenter(): android.graphics.Point {
+        val vw = findViewById<View>(android.R.id.content)
+        return Point(vw.width / 2, vw.height / 2)
     }
     /*
     private fun double getCurrentPixelY(Location upperLeft, Location lowerRight, Location current) {
