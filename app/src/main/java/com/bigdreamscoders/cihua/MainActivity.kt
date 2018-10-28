@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import kotlinx.android.synthetic.main.activity_main.*
 import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -21,6 +22,8 @@ import android.widget.ImageView
 import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.view.*
 import java.lang.Exception
+import android.view.MotionEvent
+import android.view.View
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,22 +31,16 @@ class MainActivity : AppCompatActivity() {
     val locationManager: LocationManager? = null
     val listener: LocationListener? = null
     var previousL: Location? = null
-    lateinit var widthVW: HorizontalScrollView
-    lateinit var heightVW: ScrollView
-    lateinit var gpsI:ImageView
+    //lateinit var gpsI:ImageView
     val imageMapWidth = 751
     val imageMapHeigh = 935
-    //    val imageGps = gps
+    // val imageGps = gps
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        heightVW = scrollView
-        widthVW = scrollViewVertical
-        widthVW.scrollTo(0,imageMapWidth)
-        heightVW.scrollTo(imageMapHeigh,0)
-        // gpsI = gps
+        //gpsI = gps
         //gpsI.animate().translationX(imageMapWidth.toFloat())
         //gpsI.animate().translationY(imageMapHeigh.toFloat())
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -88,6 +85,44 @@ class MainActivity : AppCompatActivity() {
         callanimation.setOnClickListener {
             startActivity(Intent(this.baseContext, AnimationActivity::class.java))
         }
+
+        val windowwidth = windowManager.defaultDisplay.width
+        val windowheight = windowManager.defaultDisplay.height
+        val balls = findViewById<View>(R.id.mapa)
+        
+
+
+        
+        balls.setOnTouchListener(object : View.OnTouchListener {
+            
+            override 
+            fun onTouch(v: View, event: MotionEvent): Boolean {
+                val layoutParams = balls.layoutParams as ActionBar.LayoutParams
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                    }
+                    MotionEvent.ACTION_MOVE -> {
+                        var x_cord = event.rawX.toInt()
+                        var y_cord = event.rawY.toInt()
+
+                        if (x_cord > windowwidth) {
+                            x_cord = windowwidth
+                        }
+                        if (y_cord > windowheight) {
+                            y_cord = windowheight
+                        }
+
+                        layoutParams.leftMargin = x_cord - 25
+                        layoutParams.topMargin = y_cord - 75
+
+                        balls.layoutParams = layoutParams
+                    }
+                    else -> {
+                    }
+                }
+                return true
+            }
+        })
     }
 
     fun requestGps(): Boolean {

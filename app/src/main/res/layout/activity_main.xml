@@ -32,37 +32,28 @@
             android:tint="@color/common_google_signin_btn_text_dark_default"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
-    <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/scrollView"
+    <android.support.constraint.ConstraintLayout
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="1.0">
-        <HorizontalScrollView
-                android:id="@+id/scrollViewVertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <android.support.constraint.ConstraintLayout android:layout_width="wrap_content"
-                                                         android:layout_height="match_parent">
-                <ImageView
-                        android:id="@+id/gps"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_gps_not_fixed_black_24dp"
-                        android:contentDescription="@string/gps"
-                        android:elevation="20dp"/>
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_map"
-                        android:scaleType="center"
-                        android:id="@+id/mapa"
-                        android:contentDescription="@string/image"
-                        android:adjustViewBounds="true"/>
-            </android.support.constraint.ConstraintLayout>
-        </HorizontalScrollView>
-    </ScrollView>
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
 
+        <ImageView
+                android:id="@+id/gps"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_gps_not_fixed_black_24dp"
+                android:contentDescription="@string/gps"
+                android:elevation="20dp"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_map"
+                android:scaleType="center"
+                android:id="@+id/mapa"
+                android:contentDescription="@string/image"
+                android:adjustViewBounds="true"/>
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
