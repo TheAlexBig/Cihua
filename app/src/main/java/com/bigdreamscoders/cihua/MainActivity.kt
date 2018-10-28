@@ -17,13 +17,17 @@ import android.os.Build
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import android.widget.HorizontalScrollView
-import android.widget.ImageView
-import android.widget.ScrollView
 import kotlinx.android.synthetic.main.activity_main.view.*
 import java.lang.Exception
 import android.view.MotionEvent
 import android.view.View
+import android.widget.*
+import android.R.attr.y
+import android.R.attr.x
+import android.graphics.Point
+import android.view.Display
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +38,10 @@ class MainActivity : AppCompatActivity() {
     //lateinit var gpsI:ImageView
     val imageMapWidth = 751
     val imageMapHeigh = 935
+    var Xo:Float? = null
+    var Yo:Float? = null
+    var yes:Boolean = true
+    var flag = 0;
     // val imageGps = gps
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,45 +94,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this.baseContext, AnimationActivity::class.java))
         }
 
-        val windowwidth = windowManager.defaultDisplay.width
-        val windowheight = windowManager.defaultDisplay.height
-        val balls = findViewById<View>(R.id.mapa)
-        
-
-
-        
-        balls.setOnTouchListener(object : View.OnTouchListener {
-            
-            override 
-            fun onTouch(v: View, event: MotionEvent): Boolean {
-                val layoutParams = balls.layoutParams as ActionBar.LayoutParams
-                when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                    }
-                    MotionEvent.ACTION_MOVE -> {
-                        var x_cord = event.rawX.toInt()
-                        var y_cord = event.rawY.toInt()
-
-                        if (x_cord > windowwidth) {
-                            x_cord = windowwidth
-                        }
-                        if (y_cord > windowheight) {
-                            y_cord = windowheight
-                        }
-
-                        layoutParams.leftMargin = x_cord - 25
-                        layoutParams.topMargin = y_cord - 75
-
-                        balls.layoutParams = layoutParams
-                    }
-                    else -> {
-                    }
+        var listener = View.OnTouchListener(function = {view, motionEvent->
+            if(motionEvent.action == MotionEvent.ACTION_MOVE ){
+                if(flag == 0) {
+                    view.y = (view.height / 2).toFloat()
+                    view.x = (view.width / 2).toFloat()
+                    flag=1;
+                }else{
+                    //view.y -= (view.y - motionEvent.rawY)
+                    //view.x -= (view.x - motionEvent.rawX)
                 }
-                return true
             }
-        })
-    }
 
+            true
+        })
+        mapa.setOnTouchListener(listener)
+
+
+    }
     fun requestGps(): Boolean {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
