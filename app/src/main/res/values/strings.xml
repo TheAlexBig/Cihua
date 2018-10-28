@@ -4,4 +4,17 @@
     <string name="mapa">Mapa</string>
     <string name="gps">Gps</string>
     <string name="image">Image</string>
+    <string name="sabias_que">¿Sabias qué?</string>
+    <string name="piramide">Pirámide P-7</string>
+    <string name="piramide_info">La zona monumental de Cihuatán tiene más de 150 estructuras visibles, y entre ellas sobresale la pirámide principal de la antigua ciudad. Las primeras excavaciones en esta pirámide fueron efectuadas en 1929 por Antonio Sol, quien excavó alrededor de Ia base encontrando tres escalinatas: la más grande en el lado poniente, y dos menores en los lados norte y sur y en la cima de la pirámide encontró vestigios de una plataforma empedrada con piedra que sostenía un templo.</string>
+    <string name="choza">Choza P-10</string>
+    <string name="choza_info">La gran mayoría de la población de cihuatán vivía en la amplia zona residencial que rodeaba el centro de la ciudad con más de 5000 hogares.
+        Las casas eran construidas sobre una plataforma hecha de tierra y piedras, de unos 30-50 cm de altura que servía para alejarse de la humedad del suelo, y para evitar la entrada de lluvia. Sobre la plataforma basal, se utilizaban horcones y vigas para armar el esqueleto de la casa, con alto techo de paja. Las paredes de la casa eran de bahareque y este estilo se ha llegado a mantener hasta tiempos actuales.
+    </string>
+    <string name="cancha">Cancha de pelotas P-5</string>
+    <string name="cancha_info">De las dos canchas en Cihuatán, el Juego de Pelota Norte es el mejor conocido debido a su excavación casi completa y a su restauración parcial. El Juego de Pelota Norte comparte muchos rasgos con otras canchas mesoamericanas del período Posclásico. El juego de pelota mesoamericano siempre se jugaba entre dos equipos, aunque las reglas sin duda varían de acuerdo a la región y la época. La planta de esta cancha tiene forma de "I", con piso empedrado. El "callejón" largo fue el lugar principal de juego y está flanqueado por bancas al pie de taludes inclinados, construidos así para rebotar la pelota hacia arriba.</string>
+    <string name="templo">Templo p-12</string>
+    <string name="tempo_info">La pequeña plataforma es uno de los muchos templos menores de Cihuatán y tiene una plataforma de piedras con una escalinata en su lado poniente. Sostenía una estructura perecedera de bahareque con techo de paja. Designada como la Estructura P-12, fue excavada en 1978 por Earl Lubensky.</string>
+    <string name="defecto">Mapa de cihuatán</string>
+    <string name="defecto_info">Se desplegara información de sitios importantes</string>
 </resources>

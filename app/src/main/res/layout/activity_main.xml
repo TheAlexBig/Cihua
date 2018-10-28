@@ -8,21 +8,6 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay" android:id="@+id/appBarLayout">
-
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-
-    </android.support.design.widget.AppBarLayout>
-
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/callanimation"
             android:layout_width="wrap_content"
@@ -37,10 +22,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/scrollView"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent">
         <HorizontalScrollView
                 android:id="@+id/scrollViewVertical"
                 android:layout_width="match_parent"
@@ -65,9 +50,10 @@
             android:src="@drawable/ic_gps_not_fixed_black_24dp"
             android:contentDescription="@string/gps"
             android:elevation="20dp"
-            app:layout_constraintTop_toTopOf="@+id/scrollView" android:layout_marginStart="8dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/scrollView"/>
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
