@@ -25,7 +25,6 @@ import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
-    val OneEightyDeg = 180.0
     val locationManager: LocationManager? = null
     val listener: LocationListener? = null
     var previousL: Location? = null
@@ -42,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         heightVW = scrollView
         widthVW = scrollViewVertical
-        widthVW.scrollTo(imageMapHeigh,0)
-        heightVW.scrollTo(0,imageMapWidth)
-       // gpsI = gps
+        widthVW.scrollTo(0,imageMapWidth)
+        heightVW.scrollTo(imageMapHeigh,0)
+        // gpsI = gps
         //gpsI.animate().translationX(imageMapWidth.toFloat())
         //gpsI.animate().translationY(imageMapHeigh.toFloat())
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
