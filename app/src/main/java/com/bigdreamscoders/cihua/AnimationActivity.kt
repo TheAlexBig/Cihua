@@ -1,5 +1,7 @@
 package com.bigdreamscoders.cihua
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
@@ -18,6 +20,15 @@ import com.google.ar.sceneform.ux.TransformableNode
 import kotlinx.android.synthetic.main.activity_animation.*
 
 class AnimationActivity : AppCompatActivity() {
+
+    private var timer: ObjectAnimator? = null
+    private var degreesPerSecond = 90.0f
+    private var lastSpeedMultiplier = 1.0f
+    private val animationDuration: Long
+        get() = (1000 * 360 / (degreesPerSecond * speedMultiplier)).toLong()
+    private val speedMultiplier: Float
+        get() = 1.0f
+
     lateinit var fragment: ArFragment
     val anchors: MutableList<Anchor> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +68,7 @@ class AnimationActivity : AppCompatActivity() {
             for (hit in hits) {
                 val trackable = hit.trackable
                 if (trackable is Plane && trackable.isPoseInPolygon(hit.hitPose)) {
-                    placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
+                    placeObject(fragment, hit.createAnchor(), Uri.parse(elements.get(0)))
                     placeFloor(fragment, hit.createAnchor(), Uri.parse(elements.get(1)))
                     break
                 }
@@ -127,9 +138,6 @@ class AnimationActivity : AppCompatActivity() {
         rotatingNode.addChild(transformableNode)
         rotatingNode.setParent(anchorNode)
 
-
-        //transformableNode.renderable = renderable
-        //transformableNode.setParent(anchorNode)
         fragment.arSceneView.scene.addChild(anchorNode)
         transformableNode.select()
     }
@@ -139,19 +147,4 @@ class AnimationActivity : AppCompatActivity() {
         return Point(vw.width / 2, vw.height / 2)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

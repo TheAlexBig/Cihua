@@ -14,7 +14,6 @@ class RotatingNode : Node(), Node.OnTapListener {
     override fun onTap(p0: HitTestResult?, p1: MotionEvent?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-    // We'll use Property Animation to make this node rotate.
 
     private var rotationAnimation: ObjectAnimator? = null
     private var degreesPerSecond = 90.0f
@@ -30,15 +29,12 @@ class RotatingNode : Node(), Node.OnTapListener {
     override fun onUpdate(frameTime: FrameTime?) {
         super.onUpdate(frameTime)
 
-        // Animation hasn't been set up.
         if (rotationAnimation == null) {
             return
         }
 
-        // Check if we need to change the speed of rotation.
         val speedMultiplier = speedMultiplier
 
-        // Nothing has changed. Continue rotating at the same speed.
         if (lastSpeedMultiplier == speedMultiplier) {
             return
         }
