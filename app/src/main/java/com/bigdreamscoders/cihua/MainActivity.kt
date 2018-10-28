@@ -90,20 +90,25 @@ class MainActivity : AppCompatActivity() {
             mapa.getLocationOnScreen(outLocation)
             outLocation[1] = scrollView.scrollY
             outLocation[0] = scrollViewVertical.scrollX
-            //juego de la pelota y =  0..382
-            if (outLocation.first() in 2806..3126 && outLocation[1]  in 0..558) sector = 4
-            //Piramide
-            if (outLocation.first() in  2632..2976 && outLocation[1]  in 1196..1698) sector = 3
+
+            //Templo
+            if (outLocation.first() in 1171..1280 && outLocation[1]  in 283..432) sector = 1
             //Choza
             if (outLocation.first() in 1827..1993 && outLocation[1]  in 1135..1384) sector = 2
-            //Templo
-            if (outLocation.first() in 1153..1284 && outLocation[1]  in 400..554) sector = 1
+            //Piramide
+            if (outLocation.first() in  2632..2976 && outLocation[1]  in 1196..1698) sector = 3
+            //Juego de la pelota
+            if (outLocation.first() in 2806..3126 && outLocation[1]  in 0..558) sector = 4
 
-            Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1], Toast.LENGTH_LONG).show()
+            if(!(outLocation.first() in 2806..3126 && outLocation[1]  in 0..558) && !(outLocation.first() in  2632..2976 && outLocation[1]  in 1196..1698) && !(outLocation.first() in 1827..1993 && outLocation[1]  in 1135..1384) && !(outLocation.first() in 1171..1280 && outLocation[1]  in 283..432)) sector = 0
 
-            val intent = Intent(this.baseContext, AnimationActivity::class.java)
-            intent.putExtra("sector", sector)
-            startActivity(intent)
+            Toast.makeText(this.baseContext, " DX "+outLocation.first().toString()+" DY "+outLocation[1] + " |   Sector "+sector.toString(), Toast.LENGTH_LONG).show()
+
+            if(sector != 0){
+                val intent = Intent(this.baseContext, AnimationActivity::class.java)
+                intent.putExtra("sector", sector)
+                startActivity(intent)
+            }
         }
     }
 
@@ -135,28 +140,4 @@ class MainActivity : AppCompatActivity() {
         val vw = findViewById<View>(android.R.id.content)
         return Point(vw.width / 2, vw.height / 2)
     }
-    /*
-    private fun double getCurrentPixelY(Location upperLeft, Location lowerRight, Location current) {
-        double hypotenuse = upperLeft.distanceTo(current);
-        double bearing = upperLeft.bearingTo(current);
-        double currentDistanceY = Math.cos(bearing * Math.PI / OneEightyDeg) * hypotenuse;
-        //                           "percentage to mark the position"
-        double totalHypotenuse = upperLeft.distanceTo(lowerRight);
-        double totalDistanceY = totalHypotenuse * Math.cos(upperLeft.bearingTo(lowerRight) * Math.PI / OneEightyDeg);
-        double currentPixelY = currentDistanceY / totalDistanceY * ImageSizeH;
-
-        return currentPixelY;
-    }
-
-    public double getCurrentPixelX(Location upperLeft, Location lowerRight, Location current) {
-        double hypotenuse = upperLeft.distanceTo(current);
-        double bearing = upperLeft.bearingTo(current);
-        double currentDistanceX = Math.sin(bearing * Math.PI / OneEightyDeg) * hypotenuse;
-        //                           "percentage to mark the position"
-        double totalHypotenuse = upperLeft.distanceTo(lowerRight);
-        double totalDistanceX = totalHypotenuse * Math.sin(upperLeft.bearingTo(lowerRight) * Math.PI / OneEightyDeg);
-        double currentPixelX = currentDistanceX / totalDistanceX * ImageSizeW;
-
-        return currentPixelX;
-    }*/
 }

@@ -16,6 +16,7 @@ import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import kotlinx.android.synthetic.main.activity_animation.*
+import kotlinx.android.synthetic.main.dialog_text.*
 
 class AnimationActivity : AppCompatActivity() {
     lateinit var fragment: ArFragment
@@ -29,6 +30,19 @@ class AnimationActivity : AppCompatActivity() {
         sector = this.intent.getIntExtra("sector",0)
 
         fragment = supportFragmentManager.findFragmentById(R.id.sceneformFragment) as ArFragment
+
+        when(sector){
+            1 -> {lugartitulo.text = getString(R.string.templo)
+            lugartexto.text = getString(R.string.tempo_info)}
+            2 -> {lugartitulo.text = getString(R.string.choza)
+            lugartexto.text = getString(R.string.choza_info)}
+            3 -> {lugartitulo.text = getString(R.string.piramide)
+            lugartexto.text = getString(R.string.piramide_info)}
+            4 -> {lugartitulo.text = getString(R.string.cancha)
+            lugartexto.text = getString(R.string.cancha_info)}
+            else -> {lugartitulo.text = getString(R.string.defecto)
+                lugartexto.text = getString(R.string.defecto_info)}
+        }
 
         fab.setOnClickListener {
             if(anchors.size==0){
@@ -56,7 +70,6 @@ class AnimationActivity : AppCompatActivity() {
         val frame = fragment.arSceneView.arFrame
         val point = getScreenCenter()
         val elements =  when(sector){
-            0-> listOf("Craneo.sfb")
             //Templo
             1-> listOf("escena2.sfb")
             //Choza
