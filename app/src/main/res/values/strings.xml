@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Cihua</string>
+    <string name="app_name">Cihuatour</string>
     <string name="action_settings">Settings</string>
+    <string name="mapa">Mapa</string>
+    <string name="gps">Gps</string>
+    <string name="image">Image</string>
 </resources>
